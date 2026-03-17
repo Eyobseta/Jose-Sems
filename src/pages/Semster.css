@@ -1,0 +1,136 @@
+.p-container{
+   width: 100%;
+   height: auto;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   background-color: #111;
+   position: relative;
+}
+.p-header{
+    width: 100%;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 3rem 1rem;
+    gap: 20px;
+    position: fixed;
+    align-items: center;
+    border-bottom: solid 1px goldenrod;
+}   
+.p-header a{
+    background-color: inherit;
+    color: goldenrod;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: solid 2px goldenrod;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.p-header a:hover{
+  background-color: goldenrod;
+  color: #111;
+}
+.quote{
+    width: 90%;
+    align-self: center;
+    margin-top: 10rem;
+    background: inherit;
+    margin-bottom: 2rem;
+}
+.quote p{
+    background: transparent;
+    color: cyan;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 2px gray;
+}
+.p-main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: transparent;
+    padding: 10px;
+}
+.p-card{
+    height: 50vh;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: transparent;
+    border: solid 2px cyan;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.p-card h2,h1,h3,h4,p,a,button{
+    background-color: transparent;
+}
+.p-card-progress{
+    width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p-card-progress p{
+ text-align: left;
+ margin: 10px;
+ font-size: 20px;
+}
+.status-bar{
+    width: 100%;
+    height: 30px;
+    background-color: cyan;
+    border-radius: 10px;
+}
+.min{
+    text-align: left;
+    padding-left: 5px;
+}
+.max{
+    text-align: right;
+}
+.p-progress-count{
+    width: 100%;
+    padding: 5px;
+   display: flex;
+   justify-content: space-betweens;
+}
+div,span{
+    text-align: center;
+    background-color: transparent;
+}
+.p-goto{
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 7px 15px;
+    outline: none;
+    border: solid 1px goldenrod;
+    border-radius: 10px;
+    color: goldenrod;
+    font-weight: bold;
+}
+.p-goto:hover{
+    background-color: goldenrod;
+    color: #111;
+}
+.footer p{
+ color: #fff;
+ padding: 20px;
+ text-transform: capitalize;
+ font-weight: bold;
+ font-size: 1.3rem;
+}
