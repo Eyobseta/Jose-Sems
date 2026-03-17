@@ -8,6 +8,8 @@
    background-color: #111;
    position: relative;
 }
+
+/* Header Style */
 .p-header{
     width: 100%;
     background-color: inherit;
@@ -19,8 +21,9 @@
     position: fixed;
     align-items: center;
     border-bottom: solid 1px goldenrod;
+    z-index: 1000;
 }   
-.p-header a{
+.nav-link{
     background-color: inherit;
     color: goldenrod;
     text-decoration: none;
@@ -35,6 +38,8 @@
   background-color: goldenrod;
   color: #111;
 }
+
+/* Qoute Style */
 .quote{
     width: 90%;
     align-self: center;
@@ -53,6 +58,9 @@
     border-radius: 10px;
     border: solid 2px gray;
 }
+
+
+/* Main content Style */
 .p-main{
     display: flex;
     flex-direction: column;
@@ -60,6 +68,7 @@
     background-color: transparent;
     padding: 10px;
 }
+/* course card Style */
 .p-card{
     height: 50vh;
     border-radius: 10px;
@@ -77,23 +86,33 @@
 }
 .p-card-progress{
     width: 100%;
-    background-color: transparent;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 .p-card-progress p{
- text-align: left;
  margin: 10px;
  font-size: 20px;
 }
-.status-bar{
+.status-container{
+    background-color: #fff;
     width: 100%;
-    height: 30px;
+    border-radius: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.status-bar{
+    height: 99%;
     background-color: cyan;
-    border-radius: 10px;
+    border-radius: 20px 0px 0px 20px;
+    transform: translateX(-10px);
+    z-index: 1;
 }
 .min{
     text-align: left;
