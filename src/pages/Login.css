@@ -1,0 +1,57 @@
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background-color: #1a1a1a;
+  padding: 3rem;
+  border-radius: 20px;
+  border: 2px solid goldenrod;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  width: 90%;
+}
+
+.login-card h1 {
+  color: cyan;
+  margin-bottom: 1rem;
+}
+
+.login-card p {
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  color: #444;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+  border-color: cyan;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}

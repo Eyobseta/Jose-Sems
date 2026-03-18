@@ -1,79 +1,119 @@
-.container{
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #111;
-    color: #fff;
-}
-.header{
-    height: fit-content;
-    padding:30px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid 1px goldenrod;
-}
-.header p{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: cyan;
-}
-.humberger{
-    font-size: 2rem;
-    color: goldenrod;
+.projects-container {
+  background-color: #111;
+  min-height: 100vh;
+  color: white;
 }
 
-.nav{
-    display: flex;
-    justify-content: space-around;
-    border-bottom: solid 1px goldenrod;
+.projects-header {
+  text-align: center;
+  padding: 2rem 0 1rem;
 }
-.nav .navItem{
-    margin: 5px;
-    padding: 10px;
-    text-decoration: none;
-    color: #fff;
+
+.projects-header h1 {
+  color: cyan;
+  font-size: 2rem;
 }
-.course-status-view{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin: 20px;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px cyan;
-    border-radius: 20px;
-    gap: 10px;
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid goldenrod;
+  border-top: 1px solid goldenrod;
+  margin: 1rem 0;
 }
-.course-status-view .title{
-    color: goldenrod;
-    font-weight: bold;
-    padding: 5px;
-    margin-bottom: 10px;
+
+.category-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid cyan;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  min-width: 60px;
 }
-.project-desc-container{
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+
+.category-btn.active {
+  background-color: cyan;
+  color: #111;
+  border-color: cyan;
 }
-.project-desc-container p{
-    padding: 7px;
+
+.category-btn:hover {
+  background-color: cyan;
+  color: #111;
 }
-.mark-complete{
-    color: goldenrod;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    align-self: flex-end;
-    border-radius: 10px;
-    border: solid 2px goldenrod;
-    outline: none;
-    transition: all 0.3s ease-in;
-    font-weight: bold;
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
-.mark-complete:hover{
-    background-color: goldenrod;
-    color: #111;
+
+.project-card {
+  border: 2px solid cyan;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: #1a1a1a;
+}
+
+.project-card h2 {
+  color: goldenrod;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.project-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-details p {
+  margin: 0;
+  color: #ccc;
+}
+
+.project-details span {
+  color: cyan;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.mark-complete {
+  background: transparent;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-end;
+}
+
+.mark-complete:hover {
+  background-color: goldenrod;
+  color: #111;
+}
+
+.completed-badge {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: right;
+  border: 2px solid #4caf50;
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  align-self: flex-end;
+  margin-top: 1rem;
 }

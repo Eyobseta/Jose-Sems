@@ -22,8 +22,10 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
-    rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-    },
+   rules: {
+    'react-refresh/only-export-components': 'warn', 
+    'react/jsx-uses-vars': 'error',
+    'react/jsx-uses-react': 'error',
+  },
   },
 ])

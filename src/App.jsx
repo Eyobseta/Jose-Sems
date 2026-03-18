@@ -1,19 +1,46 @@
-import { BrowserRouter, Routes,Route } from 'react-router-dom'
-import './App.css'
-import Semster from './pages/Semster'
-import ViewCourse from './pages/ViewCourse'
-import Projects from './pages/Projects'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+import Login from './pages/Login';
+import Semester from './pages/Semester';   
+import Projects from './pages/Projects';
+import GradeSummary from './pages/GradeSummary';
+import './App.css';
 
 function App() {
-  return(
+  return (
     <BrowserRouter>
-       <Routes>
-        <Route  path='/' element={<Semster/>}/>
-        <Route path='/course' element={<ViewCourse/>}/>
-        <Route path='/projects' element={<Projects />}/>
-       </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Semester />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <PrivateRoute>
+                <Projects />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/grades"
+            element={
+              <PrivateRoute>
+                <GradeSummary />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

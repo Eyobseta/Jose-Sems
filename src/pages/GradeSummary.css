@@ -1,0 +1,126 @@
+.grades-container {
+  background-color: #111;
+  min-height: 100vh;
+  color: white;
+  padding-bottom: 2rem;
+}
+
+.grades-container > h1 {
+  text-align: center;
+  color: cyan;
+  padding: 2rem 0 1rem;
+  font-size: 2.5rem;
+}
+
+.planning-tool {
+  background-color: #1a1a1a;
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.planning-tool h2 {
+  color: goldenrod;
+  margin-bottom: 1.5rem;
+}
+
+.target-input {
+  margin-bottom: 1.5rem;
+}
+
+.target-input label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.target-input input {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 2px solid cyan;
+  background-color: #111;
+  color: white;
+  width: 100px;
+  text-align: center;
+}
+
+.calc-btn {
+  background: transparent;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 1rem;
+}
+
+.calc-btn:hover {
+  background-color: goldenrod;
+  color: #111;
+}
+
+.gpa-result {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.gpa-result p {
+  margin: 0.5rem 0;
+}
+
+.goal.met {
+  color: #4caf50;
+}
+
+.goal.not-met {
+  color: #f44336;
+}
+
+.grades-table-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grades-table-container h2 {
+  color: goldenrod;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.grades-table th {
+  background-color: #222;
+  color: cyan;
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: 2px solid goldenrod;
+}
+
+.grades-table td {
+  padding: 0.8rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.grades-table tr:last-child td {
+  border-bottom: none;
+}
+
+.grades-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
