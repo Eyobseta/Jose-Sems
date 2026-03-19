@@ -161,9 +161,9 @@ export default function GradeSummary() {
                             }
                           />
                           {assessment.actual >= assessment.planned ? (
-                            <span className="indicator good">✅</span>
+                            <span className="indicator good"></span>
                           ) : (
-                            <span className="indicator bad">🚩</span>
+                            <span className="indicator bad"></span>
                           )}
                         </div>
                       </td>
