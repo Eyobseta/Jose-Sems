@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import { gradeDetails } from '../data/seed';
-import './GradeSummary.css';
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import { gradeDetails } from "../data/seed";
+import "./GradeSummary.css";
 
 export default function GradeSummary() {
   const [courses, setCourses] = useState(gradeDetails);
@@ -11,23 +11,28 @@ export default function GradeSummary() {
 
   // Update actual grade for a specific assessment
   const handleGradeChange = (courseId, assessmentIndex, newValue) => {
-    setCourses(prev =>
-      prev.map(course =>
+    setCourses((prev) =>
+      prev.map((course) =>
         course.id === courseId
           ? {
               ...course,
               assessments: course.assessments.map((a, idx) =>
-                idx === assessmentIndex ? { ...a, actual: parseFloat(newValue) || 0 } : a
+                idx === assessmentIndex
+                  ? { ...a, actual: parseFloat(newValue) || 0 }
+                  : a,
               ),
             }
-          : course
-      )
+          : course,
+      ),
     );
   };
 
   // Calculate total grade for a course (weighted sum)
   const calculateCourseTotal = (assessments) => {
-    const total = assessments.reduce((sum, a) => sum + (a.actual * a.weight) / 100, 0);
+    const total = assessments.reduce(
+      (sum, a) => sum + (a.actual * a.weight) / 100,
+      0,
+    );
     return Math.round(total * 10) / 10; // round to 1 decimal
   };
 
@@ -35,7 +40,7 @@ export default function GradeSummary() {
   const calculateSemesterGPA = () => {
     let totalPoints = 0;
     let totalCredits = 0;
-    courses.forEach(course => {
+    courses.forEach((course) => {
       const courseTotal = calculateCourseTotal(course.assessments);
       // Convert percentage to GPA (scale 4.0: grade/25)
       const gradePoints = (courseTotal / 25) * course.credit;
@@ -46,12 +51,18 @@ export default function GradeSummary() {
   };
 
   // Find best and worst courses
-  const courseTotals = courses.map(c => ({
+  const courseTotals = courses.map((c) => ({
     name: c.course_name,
     total: calculateCourseTotal(c.assessments),
   }));
-  const bestCourse = courseTotals.reduce((best, curr) => (curr.total > best.total ? curr : best), courseTotals[0]);
-  const worstCourse = courseTotals.reduce((worst, curr) => (curr.total < worst.total ? curr : worst), courseTotals[0]);
+  const bestCourse = courseTotals.reduce(
+    (best, curr) => (curr.total > best.total ? curr : best),
+    courseTotals[0],
+  );
+  const worstCourse = courseTotals.reduce(
+    (worst, curr) => (curr.total < worst.total ? curr : worst),
+    courseTotals[0],
+  );
 
   const semesterGPA = calculateSemesterGPA();
 
@@ -77,13 +88,24 @@ export default function GradeSummary() {
                 value={tempGPA}
                 onChange={(e) => setTempGPA(e.target.value)}
               />
-              <button onClick={saveGPA} className="save-gpa">Save</button>
-              <button onClick={() => setEditingGPA(false)} className="cancel-gpa">Cancel</button>
+              <button onClick={saveGPA} className="save-gpa">
+                Save
+              </button>
+              <button
+                onClick={() => setEditingGPA(false)}
+                className="cancel-gpa"
+              >
+                Cancel
+              </button>
             </div>
           ) : (
             <div className="gpa-display">
-              <span>Target GPA: <strong>{targetGPA}</strong></span>
-              <button className="edit-gpa" onClick={() => setEditingGPA(true)}>✏️</button>
+              <span>
+                Target GPA: <strong>{targetGPA}</strong>
+              </span>
+              <button className="edit-gpa" onClick={() => setEditingGPA(true)}>
+                ✏️
+              </button>
             </div>
           )}
         </div>
@@ -102,14 +124,16 @@ export default function GradeSummary() {
               <tr className="sub-header">
                 <th></th>
                 {courses[0]?.assessments.map((a, idx) => (
-                  <th key={idx}>{a.name} ({a.weight}%)</th>
+                  <th key={idx}>
+                    {a.name} ({a.weight}%)
+                  </th>
                 ))}
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {courses.map(course => {
+              {courses.map((course) => {
                 const courseTotal = calculateCourseTotal(course.assessments);
                 const meetsGoal = courseTotal >= course.goal;
                 return (
@@ -117,7 +141,9 @@ export default function GradeSummary() {
                     <td className="course-name">{course.course_name}</td>
                     {course.assessments.map((assessment, idx) => (
                       <td key={idx} className="assessment-cell">
-                        <div className="planned-small">{assessment.planned}%</div>
+                        <div className="planned-small">
+                          {assessment.planned}%
+                        </div>
                         <div className="actual-input">
                           <input
                             type="number"
@@ -125,7 +151,14 @@ export default function GradeSummary() {
                             min="0"
                             max="100"
                             value={assessment.actual}
-                            onChange={(e) => handleGradeChange(course.id, idx, e.target.value)}
+                            onChange={(e) =>
+                              handleGradeChange(course.id, idx, e.target.value)
+                            }
+                            className={
+                              assessment.actual >= assessment.planned
+                                ? "input-good"
+                                : "input-bad"
+                            }
                           />
                           {assessment.actual >= assessment.planned ? (
                             <span className="indicator good">✅</span>
@@ -135,11 +168,13 @@ export default function GradeSummary() {
                         </div>
                       </td>
                     ))}
-                    <td className={`course-total ${meetsGoal ? 'goal-met' : 'goal-missed'}`}>
+                    <td
+                      className={`course-total ${meetsGoal ? "goal-met" : "goal-missed"}`}
+                    >
                       {courseTotal}%
                     </td>
                     <td className="goal-indicator">
-                      {meetsGoal ? '🎯' : '❌'}
+                      {meetsGoal ? "🎯" : "❌"}
                     </td>
                   </tr>
                 );
@@ -147,9 +182,12 @@ export default function GradeSummary() {
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan={courses[0]?.assessments.length + 2} className="semester-gpa">
-                  Semester GPA: <strong>{semesterGPA}</strong> 
-                  {parseFloat(semesterGPA) >= targetGPA ? ' ✅' : ' ❌'}
+                <td
+                  colSpan={courses[0]?.assessments.length + 2}
+                  className="semester-gpa"
+                >
+                  Semester GPA: <strong>{semesterGPA}</strong>
+                  {parseFloat(semesterGPA) >= targetGPA ? " ✅" : " ❌"}
                 </td>
               </tr>
             </tfoot>

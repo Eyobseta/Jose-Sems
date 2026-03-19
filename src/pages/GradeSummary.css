@@ -284,3 +284,13 @@
     align-items: start;
   }
 }
+
+.actual-input input.input-good {
+  border-color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.actual-input input.input-bad {
+  border-color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+}
